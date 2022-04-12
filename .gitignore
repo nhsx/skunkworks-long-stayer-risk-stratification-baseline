@@ -1,5 +1,6 @@
 # Azure ML specific files
 .amlignore*
+*.amltmp
 .ipynb_aml_checkpoints
 
 # Data
