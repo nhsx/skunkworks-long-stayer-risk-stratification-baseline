@@ -42,7 +42,8 @@ _Include an ideally visual representation of data flow, and include a link to a 
 
 1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.5 long-stay-baseline`
 2. Activate your environment e.g. `pyenv activate long-stay-baseline`
-2. Install required packages: `pip install -r requirements.txt`
+3. Install required packages: `pip install -r requirements.txt`
+4. **Activate the git pre commit hook: `pre-commit install`**
 
 _Include a brief overview of the codebase. Include setup and execution instructions, including any required environment variables.
 
