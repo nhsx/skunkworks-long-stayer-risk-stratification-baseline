@@ -1,4 +1,8 @@
+# Azure ML specific files
 .amlignore*
+.ipynb_aml_checkpoints
+
+# Data
 *.state
 *.pickle
 *.dcm
