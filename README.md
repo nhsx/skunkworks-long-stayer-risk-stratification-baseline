@@ -16,9 +16,9 @@ This project aims to complement that work with simpler baseline models that coul
 
 ## Under development
 
-This project is currently under active development, which can be followed in the [`develop`](tree/develop) branch here on Github.
+This project is currently under active development, which can be followed in the `develop` branch here on Github.
 
-When the project is completed the [`develop`](tree/develop) branch will be merged into the `main` branch as a release.
+When the project is completed the `develop` branch will be merged into the `main` branch as a release.
 
 ## NHS AI Lab Skunkworks
 
