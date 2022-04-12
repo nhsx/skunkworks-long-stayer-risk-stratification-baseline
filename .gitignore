@@ -1,3 +1,4 @@
+.amlignore*
 *.state
 *.pickle
 *.dcm
