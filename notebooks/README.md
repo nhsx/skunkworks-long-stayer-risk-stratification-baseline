@@ -6,3 +6,4 @@ This directory contains notebooks associated with this project.
 2. [02 EDA](02%20EDA.ipynb) - initial Exploratory Data Analysis
 3. [03 Data cleaning](03%20Data%20cleaning.ipynb) - Data cleaning
 4. [04 Feature engineering](04%20Feature%20engineering.ipynb) - Feature selection/engineering
+5. [05 Modelling - Regression](05%20Modelling%20-%20regression.ipynb) - Modelling regression baseline models
