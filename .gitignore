@@ -10,6 +10,9 @@ data/
 *.dcm
 *.parquet
 
+# ML artefacts
+catboost_info
+
 # Created by https://www.toptal.com/developers/gitignore/api/vim,venv,pydev,linux,macos,flask,dotenv,django,direnv,python,windows,virtualenv,pycharm+all,visualstudio,jupyternotebooks,visualstudiocode,data
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,venv,pydev,linux,macos,flask,dotenv,django,direnv,python,windows,virtualenv,pycharm+all,visualstudio,jupyternotebooks,visualstudiocode,data
 
