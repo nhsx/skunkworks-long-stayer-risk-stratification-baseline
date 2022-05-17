@@ -43,6 +43,8 @@ repos:
     hooks:
       - id: nbqa-isort
         name: nbqa-isort - Sort Python imports (notebooks; auto-fixes)
+        # strangely the args need to be concatenated
+        args: ["--profile=black"]
       - id: nbqa-black
         name: nbqa-black - consistent Python code formatting (notebooks; auto-fixes)
         additional_dependencies: [black==22.3.0]
