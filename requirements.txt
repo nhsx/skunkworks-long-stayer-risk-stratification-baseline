@@ -1,2 +1,15 @@
+catboost
+cloudpickle
+python-dotenv
+matplotlib
+numpy
+pandas
+pandas_profiling
+plotly
 pre-commit
 python-dotenv
+scikit-learn
+scipy
+statsmodels
+seaborn
+xgboost
