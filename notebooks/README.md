@@ -8,3 +8,4 @@ This directory contains notebooks associated with this project.
 4. [04 Feature engineering](04%20Feature%20engineering.ipynb) - Feature selection/engineering
 5. [05a Modelling - Regression](05a%20Modelling%20-%20regression.ipynb) - Modelling regression baseline models
 5. [05b Modelling - Regression - Fairness analyis](05b%20Modelling%20-%20regression%20fairness.ipynb) - Analysing fairness of regression models
+6. [06 Modelling - classification](06%20Modelling%20-%20classification.ipynb) - Modelling classification baseline models
