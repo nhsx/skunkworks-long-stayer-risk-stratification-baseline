@@ -10,3 +10,7 @@ This directory contains notebooks associated with this project.
 5. [05b Modelling - Regression - Fairness analyis](05b%20Modelling%20-%20regression%20fairness.ipynb) - Analysing fairness of regression models
 6. [06 Modelling - classification](06%20Modelling%20-%20classification.ipynb) - Modelling classification baseline models
 7. [07 Model comparison](07%20%Model%20comparison.ipynb) - Comparing regression and classification models
+
+The steps contained in the notebooks can be visualised through the data science pipeline:
+
+![Flow of data science pipeline](../docs/data-science-pipeline.png)
