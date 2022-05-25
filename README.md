@@ -73,7 +73,7 @@ Models were also compared by calculating an equivalent risk score from the predi
 Model|Regression version|Classification version
 ---|---|---
 Dummy|Mean|Prior
-Simple|LogReg|ElasticNet
+Elastic Net|ElasticNet|LogisticRegression
 Decision Tree|DecisionTreeRegressor|DecisionTreeClassifier
 Random Forest|RandomForestRegressor|RandomForestClassifier
 Catboost|CatBoostRegressor|CatBoostClassifier
@@ -103,7 +103,7 @@ XGBoost|XGBRegressor|XGBClassifier
 2. Activate your environment e.g. `pyenv activate long-stay-baseline`
 3. Install required packages: `pip install -r requirements.txt`
 4. **Activate the git pre commit hook: `pre-commit install`**
-5. Review notebooks in [notebooks/](notebooks/)
+5. Execute notebooks in [notebooks/](notebooks/)
 
 ## NHS AI Lab Skunkworks
 
