@@ -97,8 +97,24 @@ XGBoost|XGBRegressor|XGBClassifier
 3. Feature engineering is basic, with no external datasets included in the analysis.
 4. The exclusion of minor incidents reduced the available data by 70%, and should be reviewed.
 
+## Directory structure
+
+This repository relies on two folders outside of the git tree, to safely store data and model artefacts:
+
+```
+project-directory
+├── repo-directory
+│   ├── .github
+│   ├── config
+│   ├── docs
+│   └── notebooks
+├── data
+└── models
+```
+
 ## Getting Started
 
+1. Create a folder for this project, and clone this repository as a subfolder of that folder e.g. `repo-directory` as above
 1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.5 long-stay-baseline`
 2. Activate your environment e.g. `pyenv activate long-stay-baseline`
 3. Install required packages: `pip install -r requirements.txt`
