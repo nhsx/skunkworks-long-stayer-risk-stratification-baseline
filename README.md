@@ -3,11 +3,11 @@
 
 ![Banner of NHS AI Lab Skunkworks ](docs/banner.png)
 
-# NHS AI Lab Skunkworks project: Long Stayer risk stratification baseline predictive models
+# NHS AI Lab Skunkworks project: Long Stayer risk stratification baseline models
 
-> A internal capability project for the NHS AI (Artificial Intelligence) Lab Skunkworks team, Long Stayer risk stratification baseline predictive models seeks to provide simple baseline models for predicting length of stay (days) in a secondary care setting.
+> A internal capability project for the NHS AI (Artificial Intelligence) Lab Skunkworks team, Long Stayer risk stratification baseline models seeks to provide simple baseline models for predicting length of stay (days) in a secondary care setting.
 
-Long Stayer risk stratification baseline predictive models was selected as a project to run in tandem with the [NHS AI Lab Skunkworks project: Long Stayer Risk Stratification](https://github.com/nhsx/skunkworks-long-stayer-risk-stratification) project, and started in March 2022.
+Long Stayer risk stratification baseline models was selected as a project to run in tandem with the [NHS AI Lab Skunkworks project: Long Stayer Risk Stratification](https://github.com/nhsx/skunkworks-long-stayer-risk-stratification) project, and started in March 2022.
 
 ## Intended Use
 
