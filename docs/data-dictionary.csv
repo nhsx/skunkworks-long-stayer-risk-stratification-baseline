@@ -1,0 +1,61 @@
+Field,Selected for modeling,Datatype (python),Description,Example,Min,Max,NHS Data Dictionary
+Note,,,The examples in this data dictionary are fictional and do not represent any real patients,,,,
+ADMISSION_METHOD_HOSPITAL_PROVIDER_SPELL_DESCRIPTION,N,object,Admission method,Other emergency admission,,,Derived from ADMISSION METHOD CODE (HOSPITAL SPELL PROVIDER)
+ae_arrival_mode,Y,object,How the patient arrived at hospital,Air Ambulance,,,ACCIDENT AND EMERGENCY ARRIVAL MODE (Retired)
+ae_attendance_category,N,object,"Category of A&E attendance, description",First ED Attendance,,,EMERGENCY CARE ATTENDANCE CATEGORY
+ae_attendance_disposal,N,object,Information on where patient went next,"Admitted to Ward, this provider",,,A and E ATTENDANCE DISPOSAL (Retired)
+AGE_ON_ADMISSION,Y,int64,"Age in years, on admission",55,0,100,AGE ON ADMISSION
+all_diagnoses,N,object,"ICD-10 diagnosis codes, comma separated","Z380, K571",,,ICD-10 CODE
+all_diagnosis,N,object,"Expanded diagnosis from all_diagnosis_codes, comma separated","Respiratory - Lower respiratory tract infection, Chest, Not Applicable",,,FALSE
+all_investigations,N,object,"Expanded investigation codes from all_investigation_codes, comma separated","Biochemistry, Haematology",,,FALSE
+all_local_investigations,N,object,"Expanded list of local investigations, comma separated","XR Chest ED, ECG, Biochemistry (ED), Haematology (ED)  ",,,FALSE
+all_local_treatments,N,object,"Expanded list of local treatments, comma separated","Advice Verbal, Observation - Vital Signs ",,,FALSE
+all_location_codes,N,object,"Location of treaments, specific to GHNHSFT, comma separated","EDCYHWAIT, EDCYHMAJ1, , , , , , , ,",,,FALSE
+all_treatments,N,object,"List of treatments, comma separated","Observation/electrocardiogram, pulse oximetry/head injury/trends",,,FALSE
+arrival_day_of_week,Y,object,"Day of week of arrival, 3 letter",Fri,,,FALSE
+arrival_month_name,Y,object,"Month name of arrival, 3 letter",Dec,,,FALSE
+cancer_type,N,object,Expansion of ICD-10 codes for cancer,"Malignant neoplasms, stated or presumed to  be primary, of lymphoid, haemaopoietic and related tissue",,,ICD-10 CODE
+diabetes_type,N,object,Type of diabetes,Type 2 Diabetes ,,,FALSE
+DISCHARGE_DATE_HOSPITAL_PROVIDER_SPELL,N,datetime64[ns],Discharge date of patient,2115-12-19,2110-01-01,2120-01-01,DISCHARGE DATE (HOSPITAL PROVIDER SPELL)
+District,N,object,Local district,Cheltenham,,,FALSE
+DIVISION_NAME_AT_ADMISSION,N,object,Division name,Women & Children,,,FALSE
+ED CountLast12m,N,int64,Emergency department attendance count over last 12 months,4,0,100,Emergency Care Attendance
+EL CountLast12m,Y,int64,Elective admission count over last 12 months,3,0,100,Elective admission
+EMCountLast12m,Y,int64,Emergency department admission count over last 12 months,7,0,100,Emergency Care Attendance
+ETHNIC_CATEGORY_CODE_DESCRIPTION,Y,object,2001 census ethnicity value,White and black Caribbean ,,,ETHNIC CATEGORY
+EXPECTED_DISCHARGE_DATE,N,datetime64[ns],Estimated discharge date,2119-04-05,2110-01-01,2120-01-01,ESTIMATED DISCHARGE DATE (HOSPITAL PROVIDER SPELL)
+IMD county decile,Y,float64,"Decile of deprivation, 1 = highly deprived",2,1,10,Index of Multiple Deprivation
+IS_cancer,Y,int64,Boolean binary has the long term condition of cancer,1,0,1,FALSE
+IS_care_home_on_admission,Y,int64,Is patient arriving from care home?,0,0,1,FALSE
+IS_care_home_on_discharge,Y,int64,Is patient discharged to care home?,1,0,1,FALSE
+IS_chronic_kidney_disease,Y,int64,Boolean binary has the long term condition of CKD,1,0,1,FALSE
+IS_COPD,Y,int64,Boolean binary has the long term condition of COPD,0,0,1,FALSE
+IS_coronary_heart_disease,Y,int64,Boolean binary has the long term condition of CHD,0,0,1,FALSE
+IS_dementia,Y,int64,Boolean binary has the long term condition of dementia,1,0,1,FALSE
+IS_diabetes,Y,int64,Boolean binary has the long term condition of diabetes,0,0,1,FALSE
+IS_elective,Y,int64,"Boolean binary whether admission is elective, or not",1,0,1,FALSE
+IS_frailty_proxy,Y,int64,"Boolean binary has the long term condition of frailty, does not match Frailty Proxy",1,0,1,FALSE
+IS_hypertension,Y,int64,Boolean binary has the long term condition of hypertension,1,0,1,FALSE
+IS_illness_not_injury,Y,int64,Boolean binary is presenting complaint an illness?,0,0,1,FALSE
+IS_mental_health,Y,int64,Boolean binary has a mental health long term condition,0,0,1,FALSE
+IS_PATIENT_DEATH_DURING_SPELL,N,object,Did patient die during spell,N,,,FALSE
+LENGTH_OF_STAY,Y,int64,"Length of stay, in days",39,0,100,FALSE
+MAIN_SPECIALTY_CODE_AT_ADMISSION_DESCRIPTION,Y,object, Royal College admission code description,Paediatrics,,,MAIN SPECIALTY CODE
+Mental Health Flag,N,object,Attendance reason flagged as mental health,Other,,,FALSE
+OAC Group Name,Y,object,ONS Output Area Classification Group name,Ageing Urban Living,,,FALSE
+OAC Subgroup Name,Y,object,ONS Output Area Classification Group name,Rural Employment and Retirees,,,FALSE
+OAC Supergroup Name,Y,object,ONS Output Area Classification Group name,Hard-Pressed Living,,,FALSE
+OP First CountLast12m,Y,int64,Number of first appointments attended in last 12 months,5,0,100,APPOINTMENT FIRST ATTENDANCE
+OP FU CountLast12m,Y,int64,Number of follow up appointments attended in last 12 months,20,0,100,APPOINTMENT FIRST ATTENDANCE
+PATIENT_CLASSIFICATION_DESCRIPTION,N,object,Patient classification description,Mother and baby using delivery facilities only.,,,PATIENT CLASSIFICATION CODE
+PATIENT_GENDER_CURRENT_DESCRIPTION,Y,object,Patient gender description,Not specified,,,PERSON STATED GENDER CODE
+POST_CODE_AT_ADMISSION_DATE_DISTRICT,Y,object,First part of patient post code,YO60,,,POSTCODE
+Presenting Complaint Group,N,object,Presenting complaint group,Renal/kidney,,,FALSE
+presenting_complaint,N,object,Presenting complaint (truncated),HEADACHE,,,PRESENTING COMPLAINT (CODED CLINICAL ENTRY)
+reason_for_admission,N,object,Reason for admission,Chemo - MVC,,,FALSE
+Rural urban classification,Y,object,ONS Rural urban classification,Rural hamlets and isolated dwellings,,,FALSE
+SOURCE_OF_ADMISSION_HOSPITAL_PROVIDER_SPELL_DESCRIPTION,Y,object,"Where patient admitted from, description",Penal establishment,,,SOURCE OF ADMISSION CODE (HOSPITAL PROVIDER SPELL)
+SpellDominantProcedure,N,object,Main diagnosis code for spell,H259,,,OPCS
+START_DATE_TIME_HOSPITAL_PROVIDER_SPELL,N,datetime64[ns],The start of the hospital spell,2118-08-02 13:32:00,2110-01-01,2120-01-01,START DATE AND TIME (HOSPITAL PROVIDER SPELL)
+stroke_ward_stay,Y,int64,Is patient staying in stroke ward?,1,0,1,FALSE
+TREATMENT_FUNCTION_CODE_AT_ADMISSION_DESCRIPTION,N,object,Treatment description,Clinical immunology and allergy,,,ACTIVITY TREATMENT FUNCTION CODE
