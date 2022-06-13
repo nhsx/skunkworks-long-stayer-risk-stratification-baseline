@@ -49,7 +49,7 @@ Anonymised data was exported from Gloucestershire Hospitals NHS Foundation Trust
 
 ![Image of data flow](docs/data-flow.png)
 
-A data dictionary of terms used will shortly be made available.
+A data dictionary of fields is available [here](docs/data-dictionary.csv).
 
 ## Model selection
 
