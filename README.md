@@ -91,7 +91,7 @@ XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_ap
 
 ### Regression
 
-* Regression models were trained using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays.
+* Regression models were trained using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more.
 * Regression models were evaluated using `mean_absolute_error`. Mean absolute error is more easily interpreted - e.g. the error is the number of days away from the actual length of stay.
 
 ### Classification
