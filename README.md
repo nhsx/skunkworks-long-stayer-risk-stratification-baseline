@@ -53,7 +53,7 @@ A data dictionary of fields is available [here](docs/data-dictionary.csv).
 
 ## Model selection
 
-Simple baseline models were implemented using commonly available packages including [scikit-learn](https://scikit-learn.org/), [CatBoost](https://catboost.ai) and [XGBoost](https://xgboost.readthedocs.io/en/stable/).
+Simple baseline models were implemented using commonly available packages including [scikit-learn 1.1.1](https://scikit-learn.org/), [CatBoost 1.0.6](https://catboost.ai) and [XGBoost 1.3.3](https://xgboost.readthedocs.io/en/stable/).
 
 Models were trained using 5-fold crossvalidation, with initial attempts at hyperparameter tuning yielding small (single %) improvements in performance. `GridSearchCV` has been implemented for further hyperparameter tuning attempts.
 
