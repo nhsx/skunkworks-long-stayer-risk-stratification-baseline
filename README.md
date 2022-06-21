@@ -45,13 +45,19 @@ This repository contains a series of [notebooks](notebooks/) which implement the
 
 The results of the analysis will shortly be available as a written report, stored in this repository.
 
+## Population
+
+* The population for this project is defined as non-elective, major cases as recorded in an acute hospital trust electronic patient record.
+* This population includes patients with a length of stay of 0 days, ie. day patients.
+* Features selected are available on admission.
+
+A data dictionary of fields is available [here](docs/data-dictionary.csv).
+
 ## Data pipeline
 
 Anonymised data was exported from Gloucestershire Hospitals NHS Foundation Trusts Data Warehouse:
 
 ![Image of data flow](docs/data-flow.png)
-
-A data dictionary of fields is available [here](docs/data-dictionary.csv).
 
 ## Model selection
 
