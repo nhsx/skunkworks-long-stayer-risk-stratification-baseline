@@ -79,16 +79,16 @@ Random Forest|[RandomForestRegressor](https://scikit-learn.org/stable/modules/ge
 Catboost|[CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor)|[CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier)
 XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor)|[XGBClassifier](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBClassifier)
 
-## Metric selection
+## Model training
 
 ### Regression
 
-* Regression models were trained using `neg_mean_squared_error`.
-* Regression models were evaluated using `mean_absolute_error`.
+* Regression models were trained using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays.
+* Regression models were evaluated using `mean_absolute_error`. Mean absolute error is more easily interpreted - e.g. the error is the number of days away from the actual length of stay.
 
 ### Classification
 
-* Classification models were trained and evaluated using `f1_weighted`.
+* Classification models were trained and evaluated using `f1_weighted`. The F1 score is the harmonic mean of the precision and recall, and helps balance the performance of the classifier. The weighted F1 score was chosen due to class imbalance present in the dataset (ie. long stayers are a minority, even in major cases).
 
 ## Known limitations
 
