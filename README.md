@@ -107,16 +107,24 @@ XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_ap
 
 ## Directory structure
 
-This repository relies on two folders outside of the git tree, to safely store data and model artefacts:
+The directory structure of this project includes **data stored outside of the git tree**. This is to ensure that, when coding in the open, no data can accidentally be committed to the repository through either the use of `git push -f` to override a `.gitignore` file, or through ignoring the `pre-commit` hooks.
+
+A `project-directory` must first be created, inside of which this repository can be cloned (into e.g. `repo-directory`).
+
+`data` and `models` folders will be stored at the highest level, outside the git tree, and must be created manually first:
 
 ```
 project-directory
 ├── repo-directory
+│   ├── .git
 │   ├── .github
 │   ├── config
 │   ├── docs
 │   └── notebooks
 ├── data
+│   ├── interim
+│   ├── processed
+│   └── raw
 └── models
 ```
 
