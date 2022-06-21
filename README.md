@@ -72,12 +72,12 @@ Models were also compared by calculating an equivalent risk score from the predi
 
 Model|Regression version|Classification version
 ---|---|---
-Dummy|Mean|Prior
-Elastic Net|ElasticNet|LogisticRegression
-Decision Tree|DecisionTreeRegressor|DecisionTreeClassifier
-Random Forest|RandomForestRegressor|RandomForestClassifier
-Catboost|CatBoostRegressor|CatBoostClassifier
-XGBoost|XGBRegressor|XGBClassifier
+Dummy|[Mean](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html)|[Prior](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html)
+Elastic Net|[ElasticNet](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html)|[LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+Decision Tree|[DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)|[DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
+Random Forest|[RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)|[RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+Catboost|[CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor)|[CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier)
+XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor)|[XGBClassifier](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBClassifier)
 
 ## Metric selection
 
