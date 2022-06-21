@@ -9,6 +9,8 @@
 
 Long Stayer risk stratification baseline models was selected as a project to run in tandem with the [NHS AI Lab Skunkworks project: Long Stayer Risk Stratification](https://github.com/nhsx/skunkworks-long-stayer-risk-stratification) project, and started in March 2022.
 
+Baseline models provide a mechanism to generate baseline metrics to assess the performance of more complex models, and establish the effectiveness of simple approaches.
+
 ## Intended Use
 
 The work contained in this repository is experimental research and is intended to demonstrate the technical validity of applying machine learning models to medical records datasets in order to predict length of stay. It is not intended for deployment in a clinical or non-clinical setting without further development and compliance with the [UK Medical Device Regulations 2002](https://www.legislation.gov.uk/uksi/2002/618/contents/made) where the product qualifies as a medical device.
@@ -43,17 +45,23 @@ This repository contains a series of [notebooks](notebooks/) which implement the
 
 The results of the analysis will shortly be available as a written report, stored in this repository.
 
+## Population
+
+* The population for this project is defined as non-elective, major cases as recorded in an acute hospital trust electronic patient record.
+* This population includes patients with a length of stay of 0 days, ie. day patients.
+* Features selected are available on admission.
+
+A data dictionary of fields is available [here](docs/data-dictionary.csv).
+
 ## Data pipeline
 
 Anonymised data was exported from Gloucestershire Hospitals NHS Foundation Trusts Data Warehouse:
 
 ![Image of data flow](docs/data-flow.png)
 
-A data dictionary of fields is available [here](docs/data-dictionary.csv).
-
 ## Model selection
 
-Simple baseline models were implemented using commonly available packages including [scikit-learn](https://scikit-learn.org/), [CatBoost](https://catboost.ai) and [XGBoost](https://xgboost.readthedocs.io/en/stable/).
+Simple baseline models were implemented using commonly available packages including [scikit-learn 1.1.1](https://scikit-learn.org/), [CatBoost 1.0.6](https://catboost.ai) and [XGBoost 1.3.3](https://xgboost.readthedocs.io/en/stable/).
 
 Models were trained using 5-fold crossvalidation, with initial attempts at hyperparameter tuning yielding small (single %) improvements in performance. `GridSearchCV` has been implemented for further hyperparameter tuning attempts.
 
@@ -72,23 +80,23 @@ Models were also compared by calculating an equivalent risk score from the predi
 
 Model|Regression version|Classification version
 ---|---|---
-Dummy|Mean|Prior
-Elastic Net|ElasticNet|LogisticRegression
-Decision Tree|DecisionTreeRegressor|DecisionTreeClassifier
-Random Forest|RandomForestRegressor|RandomForestClassifier
-Catboost|CatBoostRegressor|CatBoostClassifier
-XGBoost|XGBRegressor|XGBClassifier
+Dummy|[Mean](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html)|[Prior](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html)
+Elastic Net|[ElasticNet](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html)|[LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+Decision Tree|[DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)|[DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
+Random Forest|[RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)|[RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+Catboost|[CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor)|[CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier)
+XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor)|[XGBClassifier](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBClassifier)
 
-## Metric selection
+## Model training
 
 ### Regression
 
-* Regression models were trained using `neg_mean_squared_error`.
-* Regression models were evaluated using `mean_absolute_error`.
+* Regression models were trained using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more.
+* Regression models were evaluated using `mean_absolute_error`. Mean absolute error is more easily interpreted - e.g. the error is the number of days away from the actual length of stay.
 
 ### Classification
 
-* Classification models were trained and evaluated using `f1_weighted`.
+* Classification models were trained and evaluated using `f1_weighted`. The F1 score is the harmonic mean of the precision and recall, and helps balance the performance of the classifier. The weighted F1 score was chosen due to class imbalance present in the dataset (ie. long stayers are a minority, even in major cases).
 
 ## Known limitations
 
@@ -99,16 +107,24 @@ XGBoost|XGBRegressor|XGBClassifier
 
 ## Directory structure
 
-This repository relies on two folders outside of the git tree, to safely store data and model artefacts:
+The directory structure of this project includes **data stored outside of the git tree**. This is to ensure that, when coding in the open, no data can accidentally be committed to the repository through either the use of `git push -f` to override a `.gitignore` file, or through ignoring the `pre-commit` hooks.
+
+A `project-directory` must first be created, inside of which this repository can be cloned (into e.g. `repo-directory`).
+
+`data` and `models` folders will be stored at the highest level, outside the git tree, and must be created manually first:
 
 ```
 project-directory
 ├── repo-directory
+│   ├── .git
 │   ├── .github
 │   ├── config
 │   ├── docs
 │   └── notebooks
 ├── data
+│   ├── interim
+│   ├── processed
+│   └── raw
 └── models
 ```
 
