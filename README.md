@@ -63,7 +63,7 @@ Anonymised data was exported from Gloucestershire Hospitals NHS Foundation Trust
 
 Simple baseline models were implemented using commonly available packages including [scikit-learn 1.1.1](https://scikit-learn.org/), [CatBoost 1.0.6](https://catboost.ai) and [XGBoost 1.3.3](https://xgboost.readthedocs.io/en/stable/).
 
-Models were trained using 5-fold crossvalidation, with initial attempts at hyperparameter tuning yielding small (single %) improvements in performance. `GridSearchCV` has been implemented for further hyperparameter tuning attempts.
+Models were trained with default parameters and evaluated on the test set. The best performing model was then tuned using 5-fold crossvalidation implemented with `GridSearchCV` on the training set.
 
 * A series of **regression** models were developed to predict **Length of Stay (days)**.
 * A series of **classification** models were developed to predict a **risk score** of becoming a long-stayer, according to the following mapping:
@@ -91,12 +91,13 @@ XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_ap
 
 ### Regression
 
-* Regression models were trained using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more.
-* Regression models were evaluated using `mean_absolute_error`. Mean absolute error is more easily interpreted - e.g. the error is the number of days away from the actual length of stay.
+* Regression models were trained and evaluated using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more.
+* The final regression model was also evaluated using the `mean_absolute_error` metric which gives a more human-understandable measure of performance - the number of days the length of stay is incorrect.
 
 ### Classification
 
 * Classification models were trained and evaluated using `f1_weighted`. The F1 score is the harmonic mean of the precision and recall, and helps balance the performance of the classifier. The weighted F1 score was chosen due to class imbalance present in the dataset (ie. long stayers are a minority, even in major cases).
+* Classification models were also evaluated using `balanced_accuracy` and `auc_roc` to compare performance across metrics.
 
 ## Known limitations
 

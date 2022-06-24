@@ -1,6 +1,6 @@
 import math
 import numpy as np
-from sklearn.metrics import mean_absolute_error, f1_score
+from sklearn.metrics import f1_score, mean_squared_error
 
 
 def risk_score(los):
@@ -28,49 +28,43 @@ def risk_score(los):
         return 1
 
 
-def train_model(gsc, X_train, y_train, evaluator):
-    """Uses a GridSearchCV instance to find a reasonable model, and store
-    performance and fitted model into a python dict
+def train_and_test_model(estimator, X_train, y_train, X_test, y_test, scoring_metric):
+    """Trains and tests a model, returning results in a python dict
 
     Parameters:
 
-        gsc (sklearn.model_selection.GridSearchCV object): defined model
+        estimator (object): estimator object implementing 'fit'
         X_train (pandas dataframe): training dataframe with features
         y_train (pandas dataframe): training dataframe with targets
-        evaluator (object): one of "mean_absolute_error" or "f1_weighted"
+        X_test (pandas dataframe): test dataframe with features
+        y_test (pandas dataframe): test dataframe with targets
+        scoring_metric (object): one of "mean_squared_error" or "f1_weighted"
+
 
     Returns:
 
         (dict): resulting fitted model and performance metrics
     """
 
-    grid_result = gsc.fit(X_train, y_train)
+    model = {}
 
-    # note model scoring approach defined in gsc
-    model = {
-        "cv_metric_mean": np.round(
-            grid_result.cv_results_["mean_test_score"][grid_result.best_index_], 3
-        ),
-        "cv_metric_std": np.round(
-            grid_result.cv_results_["std_test_score"][grid_result.best_index_], 2
-        ),
-        "model": grid_result.best_estimator_,
-    }
+    # fit the model based on the training data
+    model["model"] = estimator.fit(X_train, y_train)
 
-    # retrain the best estimator on the full training set - note that refit=True
-    # does not appear to do this
-    model["model"].fit(X_train, y_train)
+    # generate predictions of the training set
+    preds_train = np.clip(model["model"].predict(X_train), 0, None)
+    preds_test = np.clip(model["model"].predict(X_test), 0, None)
 
-    # generate predictions, and make sure we remove any negative length of stay
-    # predictions
-    preds = np.clip(model["model"].predict(X_train), 0, None)
-
-    # calculate final performance
-    if evaluator == "mean_absolute_error":
-        model["mae"] = np.round(mean_absolute_error(y_train, preds), 3)
-    elif evaluator == "f1_weighted":
-        model["f1_weighted"] = np.round(f1_score(y_train, preds, average="weighted"), 3)
+    # calculate performance
+    if scoring_metric == "mean_squared_error":
+        model["train_metric"] = mean_squared_error(y_train, preds_train)
+        model["test_metric"] = mean_squared_error(y_test, preds_test)
+    elif scoring_metric == "f1_weighted":
+        model["train_metric"] = f1_score(y_train, preds_train, average="weighted")
+        model["test_metric"] = f1_score(y_test, preds_test, average="weighted")
     else:
-        raise ValueError("Evaluator parameter incorrectly specified")
+        raise ValueError("Scoring metric incorrectly specified")
+
+    model["scoring_metric"] = scoring_metric
 
     return model
