@@ -65,4 +65,6 @@ def train_and_test_model(estimator, X_train, y_train, X_test, y_test, scoring_me
     else:
         raise ValueError("Scoring metric incorrectly specified")
 
+    model["scoring_metric"] = scoring_metric
+
     return model
