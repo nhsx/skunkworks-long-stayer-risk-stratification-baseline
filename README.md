@@ -112,7 +112,7 @@ The directory structure of this project includes **data stored outside of the gi
 
 A `project-directory` must first be created, inside of which this repository can be cloned (into e.g. `repo-directory`).
 
-`data` and `models` folders will be stored at the highest level, outside the git tree, and must be created manually first, including any subdirectories:
+`data` and `models` folders will be stored at the highest level, outside the git tree, and must be created manually first, including the subdirectories `data/interim`, `data/processed` and `data/raw`:
 
 ```
 project-directory
