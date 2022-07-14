@@ -38,7 +38,7 @@ def train_and_test_model(estimator, X_train, y_train, X_test, y_test, scoring_me
         y_train (pandas dataframe): training dataframe with targets
         X_test (pandas dataframe): test dataframe with features
         y_test (pandas dataframe): test dataframe with targets
-        scoring_metric (object): one of "mean_squared_error" or "f1_weighted"
+        scoring_metric (object): one of "rmse" or "f1_weighted"
 
 
     Returns:
@@ -56,9 +56,9 @@ def train_and_test_model(estimator, X_train, y_train, X_test, y_test, scoring_me
     preds_test = np.clip(model["model"].predict(X_test), 0, None)
 
     # calculate performance
-    if scoring_metric == "mean_squared_error":
-        model["train_metric"] = mean_squared_error(y_train, preds_train)
-        model["test_metric"] = mean_squared_error(y_test, preds_test)
+    if scoring_metric == "rmse":
+        model["train_metric"] = mean_squared_error(y_train, preds_train, squared=False)
+        model["test_metric"] = mean_squared_error(y_test, preds_test, squared=False)
     elif scoring_metric == "f1_weighted":
         model["train_metric"] = f1_score(y_train, preds_train, average="weighted")
         model["test_metric"] = f1_score(y_test, preds_test, average="weighted")
