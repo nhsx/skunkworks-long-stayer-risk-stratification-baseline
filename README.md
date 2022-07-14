@@ -91,7 +91,7 @@ XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_ap
 
 ### Regression
 
-* Regression models were trained and evaluated using `neg_mean_squared_error`. Mean squared error accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more.
+* Regression models were trained using default loss functions and evaluated using **root mean squared error (RMSE)**. RMSE accounts for negative errors, and improves the performance of the model for longer stays by penalising larger errors more. The final value is also in the same units as the target feature (days) so easier to interpret (although non-linear)..
 * The final regression model was also evaluated using the `mean_absolute_error` metric which gives a more human-understandable measure of performance - the number of days the length of stay is incorrect.
 
 ### Classification
