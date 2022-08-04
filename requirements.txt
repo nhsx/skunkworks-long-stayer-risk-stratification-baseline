@@ -2,7 +2,7 @@ catboost==1.0.6
 cloudpickle
 python-dotenv
 matplotlib==3.5.2
-numpy==1.19.0
+numpy==1.22.0
 pandas==1.4.2
 pandas_profiling
 plotly==5.7.0
