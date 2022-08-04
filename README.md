@@ -11,6 +11,8 @@ Long Stayer risk stratification baseline models was selected as a project to run
 
 Baseline models provide a mechanism to generate baseline metrics to assess the performance of more complex models, and establish the effectiveness of simple approaches.
 
+**Intended audience:** analysts and data scientists at NHS Trusts/ALBs
+
 Table of Contents
 =================
 
