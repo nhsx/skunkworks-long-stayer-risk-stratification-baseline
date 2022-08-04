@@ -85,7 +85,7 @@ Anonymised data was exported from Gloucestershire Hospitals NHS Foundation Trust
 
 Simple baseline models were implemented using commonly available packages including [scikit-learn 1.1.1](https://scikit-learn.org/), [CatBoost 1.0.6](https://catboost.ai) and [XGBoost 1.3.3](https://xgboost.readthedocs.io/en/stable/).
 
-Models were trained with default parameters and evaluated on the test set. The best performing model was then tuned using 5-fold crossvalidation implemented with `GridSearchCV` on the training set.
+Models were trained with default parameters and evaluated on the validation set. The best performing model was then tuned using 5-fold crossvalidation implemented with `GridSearchCV` on the training set. The final performance was measured on the test set.
 
 * A series of **regression** models were developed to predict **Length of Stay (days)**.
 * A series of **classification** models were developed to predict a **risk score** of becoming a long-stayer, according to the following mapping:
@@ -98,16 +98,7 @@ Risk Category|Day Range for Risk Category
 4 - Elevated risk|14-15
 5 - High risk|>15
 
-Models were also compared by calculating an equivalent risk score from the predicted length of stay:
-
-Model|Regression version|Classification version
----|---|---
-Dummy|[Mean](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html)|[Prior](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html)
-Elastic Net|[ElasticNet](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html)|[LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
-Decision Tree|[DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)|[DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
-Random Forest|[RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)|[RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
-Catboost|[CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor)|[CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier)
-XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor)|[XGBClassifier](https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBClassifier)
+The best performing models were compared by calculating an equivalent risk score from the predicted length of stay (catboost in both cases).
 
 ## Model training
 
@@ -125,7 +116,7 @@ XGBoost|[XGBRegressor](https://xgboost.readthedocs.io/en/stable/python/python_ap
 
 1. The pre-processing stages of the notebooks are tied to the specific extract from Gloucestershire Hospitals NHS Foundation Trust, and will need modifying to work on different datasets. A pipeline version of this project is due for development and sharing in this repository.
 2. Data loading functionality is specific to the Azure Machine Learning environment used for this project.
-3. Feature engineering is basic, with no external datasets included in the analysis.
+3. Feature engineering is basic, with no external datasets included in the analysis, and no free-text fields used.
 4. The exclusion of minor incidents reduced the available data by 70%, and should be reviewed.
 
 ## Directory structure
