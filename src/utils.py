@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from sklearn.metrics import f1_score, mean_squared_error
+from sklearn.model_selection import train_test_split
 
 
 def risk_score(los):
@@ -26,6 +27,45 @@ def risk_score(los):
         return 2
     else:
         return 1
+
+
+def train_test_validate_split(X, y, train_size, validate_size, test_size, random_state):
+    """Creates a train/test/validate split following the scikit-learn API
+
+    Parameters:
+
+        X (pandas dataframe): training dataframe with features
+        y (pandas dataframe): training dataframe with targets
+        train_size (float): fraction of data to use as a training set
+        validate_size (float): fraction of data to use as a validation set
+        test_size (float): fraction of data to use as a test set
+        random_state (int): random_state for repeatable splits
+
+    Returns:
+        X_train, X_validate, X_test, y_train, y_validate, y_test (pandas dataframe):
+            corresponding dataframes with splits
+
+    """
+
+    # Split data for train/validate+test
+    X_train, X_validate_test, y_train, y_validate_test = train_test_split(
+        X,
+        y,
+        train_size=train_size,
+        test_size=(validate_size + test_size),
+        random_state=random_state,
+    )
+
+    # Split validate+test to validate + test
+    X_validate, X_test, y_validate, y_test = train_test_split(
+        X_validate_test,
+        y_validate_test,
+        train_size=validate_size,
+        test_size=test_size,
+        random_state=random_state,
+    )
+
+    return X_train, X_validate, X_test, y_train, y_validate, y_test
 
 
 def train_and_test_model(estimator, X_train, y_train, X_test, y_test, scoring_metric):
