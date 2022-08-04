@@ -11,6 +11,30 @@ Long Stayer risk stratification baseline models was selected as a project to run
 
 Baseline models provide a mechanism to generate baseline metrics to assess the performance of more complex models, and establish the effectiveness of simple approaches.
 
+**Intended audience:** analysts and data scientists at NHS Trusts/ALBs
+
+Table of Contents
+=================
+
+* [NHS AI Lab Skunkworks project: Long Stayer risk stratification baseline models](#nhs-ai-lab-skunkworks-project-long-stayer-risk-stratification-baseline-models)
+   * [Intended Use](#intended-use)
+   * [Data Protection](#data-protection)
+   * [Background](#background)
+   * [Overview](#overview)
+   * [Population](#population)
+   * [Data pipeline](#data-pipeline)
+   * [Model selection](#model-selection)
+   * [Model training](#model-training)
+      * [Regression](#regression)
+      * [Classification](#classification)
+   * [Known limitations](#known-limitations)
+   * [Directory structure](#directory-structure)
+   * [Getting Started](#getting-started)
+   * [NHS AI Lab Skunkworks](#nhs-ai-lab-skunkworks)
+   * [Licence](#licence)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+
 ## Intended Use
 
 The work contained in this repository is experimental research and is intended to demonstrate the technical validity of applying machine learning models to medical records datasets in order to predict length of stay. It is not intended for deployment in a clinical or non-clinical setting without further development and compliance with the [UK Medical Device Regulations 2002](https://www.legislation.gov.uk/uksi/2002/618/contents/made) where the product qualifies as a medical device.
@@ -23,9 +47,7 @@ This project was subject to a Data Protection Impact Assessment (DPIA) and Data 
 
 Hospital long stayers, those with a length of stay (LoS) of 21 days or longer, have significantly worse medical and social outcomes than other patients. Long-stayers are often medically optimised (fit for discharge) many days before their actual discharge. Moreover, there are a complex mixture of medical, cultural and socioeconomic factors which contribute to the causes of unnecessary long stays.
 
-The AI Lab Skunkworks team commissioned a [Long Stayer Risk Stratification](https://github.com/nhsx/skunkworks-long-stayer-risk-stratification) model in April 2021 using some approaches from Generative Adversarial Networks (GANs), including a Convolutional Neural Network (CNN) to predict Length of Stay and an associated risk score.
-
-This project aims to complement that work with simpler baseline models that could be replicated at other hospital trusts, and is divided into two phases:
+This project aims to complement [previous work](https://github.com/nhsx/skunkworks-long-stayer-risk-stratification) by generating simple baseline regression and classification models that could be replicated at other hospital trusts, and is divided into two phases:
 
 1. Phase 1: Series of Jupyter Notebooks containing baseline model code
 2. Phase 2: [Reproducible Analytical Pipeline](https://github.com/NHSDigital/rap-community-of-practice) including data pipelines
