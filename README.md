@@ -1,5 +1,5 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-lightgray.svg)](LICENSE)
-![Python Version](https://img.shields.io/badge/Python-3.8.5-blue.svg)
+![Python Version](https://img.shields.io/badge/Python-3.8.13-blue.svg)
 
 ![Banner of NHS AI Lab Skunkworks ](docs/banner.png)
 
@@ -146,7 +146,7 @@ project-directory
 ## Getting Started
 
 1. Create a folder for this project, and clone this repository as a subfolder of that folder e.g. `repo-directory` as above
-1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.5 long-stay-baseline`
+1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.13 long-stay-baseline`
 2. Activate your environment e.g. `pyenv activate long-stay-baseline`
 3. Install required packages: `pip install -r requirements.txt`
 4. **Activate the git pre commit hook: `pre-commit install`**
