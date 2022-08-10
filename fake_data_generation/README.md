@@ -7,7 +7,7 @@ This directory contains a file called `generate_fake_data.py`. The purpose of `g
 - To test the setup and running of the repo.
 
 The following should be noted with regards to artefacts produced by using fake data:
-- *DO NOT* use the model artefacts (`.pickle` and `.state` files) generated from the fake data to make predictions which will be used in any real world application.
+- *DO NOT* use the model artefacts (`.pickle` files) generated from the fake data to make predictions which will be used in any real world application.
 - *DO NOT* use the fake data generated to inform any insights to be applied to a real world setting.
 - *DO NOT* use the fake data to test the performance of the model.
 
