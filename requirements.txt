@@ -1,12 +1,15 @@
 catboost==1.0.6
 cloudpickle
 python-dotenv
+ipywidgets==7.7.1
 matplotlib==3.5.2
+nbformat==5.4.0
 numpy==1.22.0
 pandas==1.4.2
-pandas_profiling
+pandas_profiling==3.2.0
 plotly==5.7.0
 pre-commit
+pyarrow==9.0.0
 python-dotenv
 scikit-learn==1.1.1
 scipy
