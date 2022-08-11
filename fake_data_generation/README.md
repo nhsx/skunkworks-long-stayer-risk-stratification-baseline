@@ -55,4 +55,4 @@ $ python generate_fake_data.py -nr 20000 -fn "training_data" --only_major_cases
 ```
 
 ## Generating fake data to test repo
-For a step by step guide on how to generate the fake data and then train the models to test the repo setup, please see: [Training](../training/README.md)
+For a step by step guide on how to generate the fake data and then train the models to test the repo setup, please see: [Getting Started: Generating Fake Data](../README.md#generating-fake-data)
