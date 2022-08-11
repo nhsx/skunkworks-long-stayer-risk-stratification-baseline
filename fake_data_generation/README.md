@@ -21,7 +21,7 @@ Data fields that do not have their categories specified in [fake_data_categories
 
 
 ## How to run
-Before running ensure your environment is set up as described in: [Training](../README.md#getting-started)
+Before running ensure your environment is set up as described in: [Getting Started](../README.md#getting-started)
 
 Please note all bash commands listed below assume the working directory is `fake_data_generation` (this directory).
 
