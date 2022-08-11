@@ -24,7 +24,7 @@ parser.add_argument(
     "--number_of_records",
     "-nr",
     type=int,
-    default=100,
+    default=10000,
     help="[int] Number of records to generate. Default is 100.",
 )
 parser.add_argument(
