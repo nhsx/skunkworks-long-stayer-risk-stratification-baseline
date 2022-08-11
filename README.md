@@ -152,6 +152,14 @@ project-directory
 4. **Activate the git pre commit hook: `pre-commit install`**
 5. Execute notebooks in [notebooks/](notebooks/)
 
+### Generating fake data
+
+If you wish to test the notebooks with fake data, there is a fake data generator provided with this repo, contained in `fake_data_generation`.
+
+In order to use it one, once you have completed step 4 above, you need to navigate to the `fake_data_generation` folder (e.g. `cd fake_data_generation` if you are in the same folder that this README is in) and then call `python3 generate_fake_data.py` to run the script with default options.
+
+For more detail on options available when generating fake data, please see [Fake Data Generation documentation](fake_data_generation/README.md)
+
 ## NHS AI Lab Skunkworks
 
 The project is supported by the NHS AI Lab Skunkworks, which exists within the NHS AI Lab at the NHS Transformation Directorate to support the health and care community to rapidly progress ideas from the conceptual stage to a proof of concept.
