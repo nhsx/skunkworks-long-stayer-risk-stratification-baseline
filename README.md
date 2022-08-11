@@ -65,7 +65,7 @@ This repository contains a series of [notebooks](notebooks/) which implement the
 5. Modelling
 6. Evaluation
 
-The results of the analysis will shortly be available as a written report, stored in this repository.
+> The results of the analysis are available in the [technical write-up](https://nhsx.github.io/skunkworks/long-stay-baseline).
 
 ## Population
 
