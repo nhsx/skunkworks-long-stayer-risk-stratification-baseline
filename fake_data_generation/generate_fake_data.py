@@ -9,13 +9,14 @@ import argparse
 import json
 import numpy as np
 import pandas as pd
-import random
 
 # Get arguments from command line
 # (If args are not specified default values will be used.)
 parser = argparse.ArgumentParser(
-    description="""The purpose of `generate_fake_data.py` is to create a `.csv` file with fake data with the following intended applications: 
-    An example of how data needs to be formatted to be passed into the model and to test the setup and running of the repo."""
+    description="""The purpose of `generate_fake_data.py` is to create a `.csv`
+    file with fake data with the following intended applications:
+    An example of how data needs to be formatted to be passed into the model
+    and to test the setup and running of the repo."""
 )
 
 # Args to generate
@@ -32,7 +33,8 @@ parser.add_argument(
     type=str,
     default="fake_data",
     help="""[str] The name of the csv file saved at the end (do not add.csv).
-    The default name is set to "fake_data". This will generate a file called "fake_data.csv" . """,
+    The default name is set to "fake_data". This will generate a file called
+    "fake_data.csv" . """,
 )
 
 parser.add_argument(
@@ -40,8 +42,10 @@ parser.add_argument(
     "-mc",
     default=False,
     action="store_true",
-    help=""" [False - no need to specify, True - specify by just including: --only_major_cases]
-    If True all records generated will have major cases listed as "Y" if False cases will be a mix of "N" and "Y".""",
+    help=""" [False - no need to specify, True - specify by just
+    including: --only_major_cases]
+    If True all records generated will have major cases listed as "Y"
+    if False cases will be a mix of "N" and "Y".""",
 )
 
 parser.add_argument(
@@ -49,7 +53,8 @@ parser.add_argument(
     "-s",
     default=None,
     type=int,
-    help="[int] If specified will ensure result is reproducible. Default is set to None so will generate a different result each time.",
+    help="""[int] If specified will ensure result is reproducible.
+    Default is set to None so will generate a different result each time.""",
 )
 
 # Read arguments from the command line
@@ -67,7 +72,7 @@ with open("../config/data_description.json", "r") as file:
 columns = [x.upper() for x in data_columns["Original_Data_Fields"]]
 df = pd.DataFrame(columns=columns)
 
-# Load data_categories.json to get the data categories required for each field in the fake data
+# Load data_categories.json to get the required fake data categories
 with open("../config/fake_data_categories.json", "r") as file:
     data_cat = json.load(file)
 
@@ -175,19 +180,24 @@ df["POST_CODE_AT_ADMISSION_DATE_DISTRICT"] = "PostCode"
 # fields requiring float:
 df["IMD COUNTY DECILE"] = np.random.choice([0.1, 0.2, 0.3], size=args.number_of_records)
 
-# Ensure all records only show "Y" for is "IS_MAJOR" if args.only_major_cases is True
+# Filter for IS_MAJOR = True if args.only_major_cases is True
 if args.only_major_cases:
     df["IS_MAJOR"] = "Y"
 
-# Rename fields to be as required for notebooksADMISSION,DISCHARGE_DATE_HOSPITAL_PROVIDER_SPELL,ETHNIC_CA
-original_header = "LENGTH_OF_STAY,LENGTH_OF_STAY_IN_MINUTES,ADMISSION_METHOD_HOSPITAL_PROVIDER_SPELL_DESCRIPTION,AGE_ON_TEGORY_CODE_DESCRIPTION,DISCHARGE_READY_DATE,DIVISION_NAME_AT_ADMISSION,EXPECTED_DISCHARGE_DATE,EXPECTED_DISCHARGE_DATE_TIME,FIRST_REGULAR_DAY_OR_NIGHT_ADMISSION_DESCRIPTION,FIRST_START_DATE_TIME_WARD_STAY,FIRST_WARD_STAY_IDENTIFIER,IS_PATIENT_DEATH_DURING_SPELL,MAIN_SPECIALTY_CODE_AT_ADMISSION,MAIN_SPECIALTY_CODE_AT_ADMISSION_DESCRIPTION,PATIENT_CLASSIFICATION,PATIENT_CLASSIFICATION_DESCRIPTION,POST_CODE_AT_ADMISSION_DATE_DISTRICT,SOURCE_OF_ADMISSION_HOSPITAL_PROVIDER_SPELL,SOURCE_OF_ADMISSION_HOSPITAL_PROVIDER_SPELL_DESCRIPTION,START_DATE_HOSPITAL_PROVIDER_SPELL,START_DATE_TIME_HOSPITAL_PROVIDER_SPELL,TREATMENT_FUNCTION_CODE_AT_ADMISSION,TREATMENT_FUNCTION_CODE_AT_ADMISSION_DESCRIPTION,elective_or_non_elective,stroke_ward_stay,PATIENT_GENDER_CURRENT,PATIENT_GENDER_CURRENT_DESCRIPTION,LOCAL_PATIENT_IDENTIFIER,SpellDominantProcedure,all_diagnoses,cds_unique_identifier,previous_30_day_hospital_provider_spell_number,ED_attendance_episode_number,unique_internal_ED_admission_number,unique_internal_IP_admission_number,reason_for_admission,IS_care_home_on_admission,IS_care_home_on_discharge,ae_attendance_category,ae_arrival_mode,ae_attendance_disposal,ae_attendance_category_code,healthcare_resource_group_code,presenting_complaint_code,presenting_complaint,wait,wait_minutes,all_investigation_codes,all_diagnosis_codes,all_treatment_codes,all_breach_reason_codes,all_location_codes,all_investigations,all_diagnosis,all_treatments,all_local_investigation_codes,all_local_investigations,all_local_treatment_codes,all_local_treatments,attendance_type,initial_wait,initial_wait_minutes,major_minor,IS_major,ae_patient_group_code,ae_patient_group,ae_initial_assessment_triage_category_code,ae_initial_assessment_triage_category,manchester_triage_category,arrival_day_of_week,arrival_month_name,Illness Injury Flag,Mental Health Flag,Frailty Proxy,Presenting Complaint Group,IS_cancer,cancer_type,IS_chronic_kidney_disease,IS_COPD,IS_coronary_heart_disease,IS_dementia,IS_diabetes,diabetes_type,IS_frailty_proxy,IS_hypertension,IS_mental_health,IMD county decile,District,Rural urban classification,OAC Group Name,OAC Subgroup Name,OAC Supergroup Name,EMCountLast12m,EL CountLast12m,ED CountLast12m,OP First CountLast12m,OP FU CountLast12m"
-renaming_dict = dict(zip(original_header.upper().split(","),original_header.split(",")))
-df.rename(columns = renaming_dict,inplace=True)
+# Rename fields to be as required for notebooks
+with open("original_header.txt", "r") as file:
+    original_header = file.read()
+
+renaming_dict = dict(
+    zip(original_header.upper().split(","), original_header.split(","))
+)
+df.rename(columns=renaming_dict, inplace=True)
 
 # Write dataframe to csv
 df.to_csv(f"../../data/raw/{args.filename}.csv", index=False)
 
 # Message to show script has run
 print(
-    f"Fake Data Generated! File saved: {args.filename}.csv with {args.number_of_records} records created. Seed was set to {args.seed}."
+    f"""Fake Data Generated! File saved: {args.filename}.csv with
+    {args.number_of_records} records created. Seed was set to {args.seed}."""
 )
