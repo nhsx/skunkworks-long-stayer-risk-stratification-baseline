@@ -46,12 +46,12 @@ optional arguments:
 
   To test the setup and the running of the repo it is recommended to run `generate_fake_data` with the following arguments:
   ```bash
-$ python3 generate_fake_data.py -nr 200 -fn "training_data" --only_major_cases
+$ python3 generate_fake_data.py -nr 20000 -fn "training_data" --only_major_cases
 ```
 or depending on your machine setup:
 
   ```bash
-$ python generate_fake_data.py -nr 200 -fn "training_data" --only_major_cases
+$ python generate_fake_data.py -nr 20000 -fn "training_data" --only_major_cases
 ```
 
 ## Generating fake data to test repo
