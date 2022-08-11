@@ -21,7 +21,7 @@ Data fields that do not have their categories specified in [fake_data_categories
 
 
 ## How to run
-Before running ensure your environment is set up as described in: [Training](../README.md#getting-started)   
+Before running ensure your environment is set up as described in: [Training](../README.md#getting-started)
 
 Please note all bash commands listed below assume the working directory is `fake_data_generation` (this directory).
 
@@ -55,4 +55,4 @@ $ python generate_fake_data.py -nr 200 -fn "training_data" --only_major_cases
 ```
 
 ## Generating fake data to test repo
-For a step by step guide on how to generate the fake data and then train the models to test the repo setup, please see: [Training](../training/README.md) 
+For a step by step guide on how to generate the fake data and then train the models to test the repo setup, please see: [Training](../training/README.md)
