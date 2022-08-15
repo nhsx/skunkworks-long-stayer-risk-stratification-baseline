@@ -25,7 +25,7 @@ parser.add_argument(
     "-nr",
     type=int,
     default=10000,
-    help="[int] Number of records to generate. Default is 100.",
+    help="[int] Number of records to generate. Default is 10000.",
 )
 parser.add_argument(
     "--filename",
