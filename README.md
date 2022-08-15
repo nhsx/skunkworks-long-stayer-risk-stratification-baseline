@@ -134,8 +134,10 @@ project-directory
 │   ├── .github
 │   ├── config
 │   ├── docs
+│   ├── fake_data_generation
 │   ├── notebooks
-│   └── src
+│   ├── src
+│   └── tests
 ├── data
 │   ├── interim
 │   ├── processed
@@ -144,6 +146,8 @@ project-directory
 ```
 
 ## Getting Started
+
+> Note. This project has been tested on macOS 12.3.1
 
 1. Create a folder for this project, and clone this repository as a subfolder of that folder e.g. `repo-directory` as above
 1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.13 long-stay-baseline`
@@ -158,7 +162,15 @@ If you wish to test the notebooks with fake data, there is a fake data generator
 
 In order to use it, once you have completed step 4 above, you need to navigate to the `fake_data_generation` folder (e.g. `cd fake_data_generation` if you are in the same folder that this README is in) and then call `python3 generate_fake_data.py` to run the script with default options.
 
-For more detail on options available when generating fake data, please see [Fake Data Generation documentation](fake_data_generation/README.md)
+For more detail on options available when generating fake data, please see [Fake Data Generation documentation](fake_data_generation/README.md).
+
+### Integration test
+
+There is an end-to-end integration test available, contained in `tests`.
+
+In order to use it, once you have completed step 4 above, you need to navigate to the `tests` folder (e.g. `cd tests` if you are in the same folder that this README is in) and then call `bash integration_test.sh` to run the script.
+
+For more detail on the steps undertaken by the integration test, please see the [integration test documentation](tests/README.md).
 
 ## NHS AI Lab Skunkworks
 
