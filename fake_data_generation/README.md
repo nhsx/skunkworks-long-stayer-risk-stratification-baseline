@@ -3,7 +3,7 @@
 ## Overview and Purpose
 This directory contains a file called `generate_fake_data.py`. The purpose of `generate_fake_data.py` is to create a `.csv` file with fake data with the following intended applications:
 - As an example of how data needs to be formatted to be passed into the model.
-- To ensure the files are being generated correctly to test GUI setup.
+- To ensure the files are being generated correctly to test the notebooks.
 - To test the setup and running of the repo.
 
 The following should be noted with regards to artefacts produced by using fake data:
