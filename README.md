@@ -147,6 +147,8 @@ project-directory
 
 ## Getting Started
 
+> Note. This project has been tested on macOS 12.3.1
+
 1. Create a folder for this project, and clone this repository as a subfolder of that folder e.g. `repo-directory` as above
 1. Create a new virtual environment e.g. `pyenv virtualenv 3.8.13 long-stay-baseline`
 2. Activate your environment e.g. `pyenv activate long-stay-baseline`
