@@ -109,6 +109,8 @@ The best performing models were compared by calculating an equivalent risk score
 
 ### Classification
 
+> Postscript: classification models based on increasing risk (1-5) are ordinal in nature, and an appropriate model should be used where different classes are not treated as independent as per the examples in this repo.
+
 * Classification models were trained and evaluated using `f1_weighted`. The F1 score is the harmonic mean of the precision and recall, and helps balance the performance of the classifier. The weighted F1 score was chosen due to class imbalance present in the dataset (ie. long stayers are a minority, even in major cases).
 * Classification models were also evaluated using `balanced_accuracy` and `auc_roc` to compare performance across metrics.
 
